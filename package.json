@@ -5,6 +5,8 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
+    "bluebird": "^3.5.0",
+    "config": "^1.26.1",
     "ejs": "2.3.4",
     "grunt": "1.0.1",
     "grunt-contrib-clean": "1.0.0",
@@ -19,9 +21,17 @@
     "grunt-sails-linker": "~0.10.1",
     "grunt-sync": "0.5.2",
     "include-all": "^1.0.0",
+    "lodash": "^4.17.4",
+    "nodemailer": "^4.0.1",
+    "nodemailer-mailgun-transport": "^1.3.5",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
     "rc": "1.0.1",
     "sails": "~0.12.13",
-    "sails-disk": "~0.10.9"
+    "sails-disk": "~0.10.9",
+    "taskmill-api-metering": "git+https://github.com/a7medkamel/taskmill-api-metering.git",
+    "taskmill-core-account-sdk": "git+https://github.com/a7medkamel/taskmill-core-account-sdk.git",
+    "twilio": "^3.0.0"
   },
   "scripts": {
     "debug": "node debug app.js",

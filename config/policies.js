@@ -26,7 +26,7 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  '*': false,
 
   /***************************************************************************
   *                                                                          *
@@ -48,4 +48,10 @@ module.exports.policies = {
 		// before letting any users feed our rabbits
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
+
+  ApiController : {
+    'email'           : [ 'nocache', 'jwt' ],
+    'sms'             : [ 'nocache', 'jwt' ],
+    'phone'           : [ 'nocache', 'jwt' ]
+  },
 };

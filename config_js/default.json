@@ -1,0 +1,33 @@
+{
+  "jwt" : {
+    "public"            : "[SECRET]"
+  },
+  "twilio"              : {
+    "key"               : "[KEY]",
+    "secret"            : "[SECRET]",
+    "phone"             : "[PHONE]"
+  },
+  "mailgun"             : {
+    "user"              : "[USER]",
+    "pass"              : "[PASS]",
+    "api-key"           : "[KEY]",
+    "domain"            : "[DOMAIN]"
+  },
+  "account"     : {
+    "url"               : "http://account.breadboard.io"
+  },
+  "metering" : {
+    "limits" : {
+      "email" : 50,
+      "sms"   : 10,
+      "phone" : 5,
+      "run"   : 50000
+    },
+    "redis" : {
+      "host"      : "[REDIS_HOST]",
+      "port"      : 6379,
+      "password"  : "[REDIS_PASSWORD]",
+      "db"        : 2
+    }
+  }
+}
