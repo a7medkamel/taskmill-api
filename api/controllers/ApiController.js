@@ -34,10 +34,10 @@ module.exports = {
 				return mailgun.sendMail(options);
       })
       .then(() => {
-        res.send({ message : 'OK' })
+        metering.did('email', req.user);
       })
       .then(() => {
-        metering.did('email', req.user);
+        res.send({ message : 'OK' })
       })
       .catch((err) => {
         res.status(403).send({
@@ -57,10 +57,10 @@ module.exports = {
 				return twilio.sendMessage(options);
       })
       .then(() => {
-        res.send({ message : 'OK' })
+        metering.did('sms', req.user);
       })
       .then(() => {
-        metering.did('sms', req.user);
+        res.send({ message : 'OK' })
       })
       // todo [akamel] respond with something sensible and mask private info
       .catch((err) => {
@@ -92,10 +92,10 @@ module.exports = {
 				return twilio.makeCall(options);
       })
       .then(() => {
-        res.send({ message : 'OK' })
+        metering.did('sms', req.user);
       })
       .then(() => {
-        metering.did('sms', req.user);
+        res.send({ message : 'OK' })
       })
       // todo [akamel] respond with something sensible and mask private info
       .catch((err) => {
