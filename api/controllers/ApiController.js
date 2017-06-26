@@ -55,7 +55,7 @@ module.exports = {
 
         options.from = config.get('twilio.phone');
 
-				return twilio.sendMessage(options);
+				return twilio.messages.create(options);
       })
       .then(() => {
         metering.did('sms', req.user);
@@ -90,7 +90,7 @@ module.exports = {
 
         delete options.twiml;
 
-				return twilio.makeCall(options);
+				return twilio.calls.create(options);
       })
       .then(() => {
         metering.did('sms', req.user);
