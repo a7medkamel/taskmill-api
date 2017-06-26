@@ -8,6 +8,7 @@
  var _                 = require('lodash')
    , Promise           = require('bluebird')
    , config            = require('config')
+   , url               = require('url')
    , metering          = require('taskmill-api-metering')
  	;
 
