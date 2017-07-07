@@ -1,4 +1,5 @@
-var passport    = require('passport')
+var Promise     = require('bluebird')
+  , passport    = require('passport')
   , Strategy    = require('passport-jwt').Strategy
   , ExtractJwt  = require('passport-jwt').ExtractJwt
   , config      = require('config')
@@ -23,4 +24,27 @@ passport.use(new Strategy(
   }
 ));
 
-module.exports = passport.authenticate('jwt', { /*session: false,*/ failWithError: true, assignProperty : 'user' });
+module.exports = (req, res, next) => {
+  let opts = {
+    /*session: false,*/
+      failWithError   : true
+    , assignProperty  : 'user'
+  };
+
+  Promise
+    .fromCallback((cb) => passport.authenticate('jwt', opts)(req, req, cb))
+    .asCallback((err, result) => {
+      // todo [akamel] consolidate errorify
+      if (!err) {
+        return next(err, result);
+      }
+
+      res.status(401).send({
+          message         : 'unauthorized'
+        , status          : 401
+        , ref             : 'https://breadboard.io/help#auth-tokens'
+        , hep             : 'This call requires authentication, you must either be logged in or provide a valid token.'
+      });
+    });
+  ;
+}
