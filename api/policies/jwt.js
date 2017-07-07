@@ -43,7 +43,7 @@ module.exports = (req, res, next) => {
           message         : 'unauthorized'
         , status          : 401
         , ref             : 'https://breadboard.io/help#auth-tokens'
-        , hep             : 'This call requires authentication, you must either be logged in or provide a valid token.'
+        , help            : 'This call requires authentication, you must either be logged in or provide a valid token.'
       });
     });
   ;
